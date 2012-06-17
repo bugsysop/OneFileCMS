@@ -1815,7 +1815,7 @@ elseif ( ($page == "edit") && ($filename == trim($ONESCRIPT, '/')) ) {
 	<?php echo $version.' (on&nbsp;php&nbsp'.phpversion().')'; ?>
 
 	<div class="nav">
-		<a href="/" target="_blank"><?php show_favicon() ?>&nbsp;
+		<a href="<?php echo htmlentities(dirname($_SERVER['PHP_SELF'])) ?>" target="_blank"><?php show_favicon() ?>&nbsp;
 		<b><?php echo htmlentities($WEBSITE) ?></b>  &nbsp;- &nbsp;
 		Visit Site</a>
 		<?php if ($page != "login") { ?>
