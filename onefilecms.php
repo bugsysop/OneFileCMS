@@ -46,6 +46,8 @@ $MAX_IMG_H   = 1000;  // Max height.  I don't know, it just looks reasonable.
 $MAX_EDIT_SIZE = 150000;  // Edit gets flaky with large files in some browsers.  Trial and error your's.
 $MAX_VIEW_SIZE = 1000000; // If file > $MAX_EDIT_SIZE, don't even view in OneFileCMS.
                           // The max view size is completely arbitrary. It was 2am and seemed like a good idea at the time.
+
+$config_style_sheet = ""; // If empty use embed styles, elsif use custom CSS file (exemple : style.css)
 $config_favicon   = "/favicon.ico";
 $config_excluded  = ""; //files to exclude from directory listings- CaSe sEnsaTive!
 
@@ -1798,8 +1800,16 @@ elseif ( ($page == "edit") && ($filename == trim($ONESCRIPT, '/')) ) {
 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="robots" content="noindex">
-
-<?php style_sheet(); ?>
+<?php
+// Embed or custom styles
+if (!isset($config_style_sheet) || $config_style_sheet == null) {
+	style_sheet();
+} else {
+	echo '<link href="';
+	echo $config_style_sheet;
+	echo '" type="text/css" rel="stylesheet">';
+}
+?>
 
 <?php if ( ($page == "index") || ($page == "edit") ) { Time_Stamp_scripts(); } ?>
 
