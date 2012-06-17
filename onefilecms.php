@@ -51,8 +51,8 @@ $config_excluded  = ""; //files to exclude from directory listings- CaSe sEnsaTi
 
 $config_etypes = "html,htm,xhtml,php,css,js,txt,text,cfg,conf,ini,csv,svg"; //Editable file types.
 $config_itypes = "jpg,jpeg,gif,png,bmp,ico"; //image types to display on edit page.
-$config_ftypes = "bin,jpg,gif,png,bmp,ico,svg,txt,cvs,css,php,ini,cfg,conf,asp,js ,htm,html"; // _ftype & _fclass must have same
-$config_fclass = "bin,img,img,img,img,img,svg,txt,txt,css,php,txt,cfg,cfg ,txt,txt,htm,htm";  // number of values. bin is default.
+$config_ftypes = "bin,jpg,jpeg,gif,png,bmp,ico,svg,txt,cvs,css,php,ini,cfg,conf,asp,js ,htm,html"; // _ftype & _fclass must have same
+$config_fclass = "bin,img,img,img,img,img,img,svg,txt,txt,css,php,txt,cfg,cfg ,txt,txt,htm,htm";  // number of values. bin is default.
 
 $EX = '<b>( ! )</b>'; //"EXclaimation point" icon Used in $message's
 // END CONFIGURABLE INFO *******************************************************
