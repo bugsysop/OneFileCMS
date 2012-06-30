@@ -1,7 +1,7 @@
 <?php 
 // OneFileCMS - github.com/Self-Evident/OneFileCMS
 
-$version = '3.2.1';
+$version = '"Lite" 2.2.1';
 
 /*******************************************************************************
 Copyright © 2009-2012 https://github.com/rocktronica
@@ -69,8 +69,8 @@ $config_excluded  = ""; //files to exclude from directory listings- CaSe sEnsaTi
 
 $config_etypes = "html,htm,xhtml,php,css,js,txt,text,cfg,conf,ini,csv,svg"; //Editable file types.
 $config_itypes = "jpg,gif,png,bmp,ico"; //image types to display on edit page.
-$config_ftypes = "bin,jpg,gif,png,bmp,ico,svg,txt,cvs,css,php,ini,cfg,conf,asp,js ,htm,html"; // _ftype & _fclass must have same
-$config_fclass = "bin,img,img,img,img,img,svg,txt,txt,css,php,txt,cfg,cfg ,txt,txt,htm,htm";  // number of values. bin is default.
+
+
 
 $EX = '<b>( ! )</b>'; //EXclaimation point "icon" Used in $message's
 
@@ -106,8 +106,8 @@ $INVALID_CHARS_array = explode(' ', $INVALID_CHARS); // (Space deliminated)
 //Also, remove spaces and make lowercase.
 $etypes   = explode(',', strtolower(str_replace(' ', '', $config_etypes))); //editable file types
 $itypes   = explode(',', strtolower(str_replace(' ', '', $config_itypes))); //images types to display
-$ftypes   = explode(',', strtolower(str_replace(' ', '', $config_ftypes))); //file types with icons
-$fclasses = explode(',', strtolower(str_replace(' ', '', $config_fclass))); //for file types with icons
+
+
 $excluded_list = (explode(",", $config_excluded));
 //******************************************************************************
 
@@ -374,12 +374,12 @@ function message_box() { //*****************************************************
 function Upload_New_Rename_Delete_Links() { //**********************************
 	global $ONESCRIPT, $ipath, $param1;
 	echo '<p class="front_links">';
-	echo '<a href="'.$ONESCRIPT.$param1.'&amp;p=upload">'   ; svg_icon_upload()    ; echo 'Upload File</a>';
-	echo '<a href="'.$ONESCRIPT.$param1.'&amp;p=newfile">'  ; svg_icon_file_new()  ; echo 'New File</a>'   ;
-	echo '<a href="'.$ONESCRIPT.$param1.'&amp;p=newfolder">'; svg_icon_folder_new(); echo 'New Folder</a>' ;
+	echo '<a href="'.$ONESCRIPT.$param1.'&amp;p=upload">'   ; echo 'Upload File</a>';
+	echo '<a href="'.$ONESCRIPT.$param1.'&amp;p=newfile">'  ; echo 'New File</a>'   ;
+	echo '<a href="'.$ONESCRIPT.$param1.'&amp;p=newfolder">'; echo 'New Folder</a>' ;
 	if ($ipath !== "") { //if at root, don't show Rename & Delete links
-		echo '<a href="'.$ONESCRIPT.$param1.'&amp;p=renamefolder">'; svg_icon_folder_ren(); echo 'Rename/Move Folder</a>';
-		echo '<a href="'.$ONESCRIPT.$param1.'&amp;p=deletefolder">'; svg_icon_folder_del(); echo 'Delete Folder</a>';
+		echo '<a href="'.$ONESCRIPT.$param1.'&amp;p=renamefolder">'; echo 'Rename/Move Folder</a>';
+		echo '<a href="'.$ONESCRIPT.$param1.'&amp;p=deletefolder">'; echo 'Delete Folder</a>';
 	}
 	echo '</p>';
 }//end Upload_New_Rename_Delete_Links()  ***************************************
@@ -458,178 +458,13 @@ function Timeout_Timer($COUNT, $ID, $CLASS, $ACTION) { //***********************
 
 function Init_Macros(){ //*** ($varibale="some reusable chunk of code")*********
 
-global 	$ONESCRIPT, $param1, $param2, $INPUT_NUONCE, $FORM_COMMON, 
-		$SVG_icon_circle_plus, $SVG_icon_circle_x, $SVG_icon_pencil, $SVG_icon_img_0;
+global 	$ONESCRIPT, $param1, $param2, $INPUT_NUONCE, $FORM_COMMON;
+
 
 $INPUT_NUONCE = '<input type="hidden" name="nuonce" value="'.$_SESSION['nuonce'].'">'.PHP_EOL;
 $FORM_COMMON = '<form method="post" action="'.$ONESCRIPT.$param1.$param2.'">'.$INPUT_NUONCE;
 
-$SVG_icon_circle_plus = '<circle cx="5" cy="5" r="5" stroke="black" stroke-width="0" fill="#080"/>
-	  <line x1="2" y1="5" x2="8" y2="5" stroke="white" stroke-width="1.5" />
-	  <line x1="5" y1="2" x2="5" y2="8" stroke="white" stroke-width="1.5" />';
-
-$SVG_icon_circle_x = '<circle cx="5" cy="5" r="5" stroke="black" stroke-width="0" fill="#D00"/>
-	<line x1="2.5" y1="2.5" x2="7.5" y2="7.5" stroke="white" stroke-width="1.5"/>
-	<line x1="7.5" y1="2.5" x2="2.5" y2="7.5" stroke="white" stroke-width="1.5"/>';
-
-$SVG_icon_pencil = '<polygon points="2,0 9,7 7,9 0,2" stroke-width="1" stroke="darkgoldenrod" fill="rgb(246,222,100)"/>
-	  <path  d="M0,2   L0,0  L2,0"      stroke="tan" fill="tan" stroke-width="1" />
-	  <path  d="M0,1.5   L0,0  L1.5,0"      stroke="black" fill="transparent" stroke-width="1" />
-	  <line x1="7.3" y1="10"  x2="10" y2="7.3"  stroke="silver" stroke-width="1"/>
-	  <line x1="8.1" y1="10.8"  x2="10.8" y2="8.1"  stroke="red" stroke-width="1"/>';
-
-$SVG_icon_img_0 = '<rect x="0"    y="0"   width="14" height="16" fill="#FF8" stroke="#44F" stroke-width="2" />
-	<rect x="2"    y="2"   width="5"  height="5"  fill="#F66" stroke-width="0" />
-	<rect x="7.5"  y="6"   width="5"  height="5"  fill="#6F6" stroke-width="0" />
-	<rect x="2"    y="10"  width="5"  height="5"  fill="#66F" stroke-width="0" />';
 }//end Init_Macros() ***********************************************************
-
-
-
-
-function svg_icon_bin(){ //*****************************************************
-$zero = '<rect x="0"  y="0"  width="3" height="6" fill="transparent" stroke="#555" stroke-width="1" />';
-$one  = '<line x1="0" y1="-.5"   x2="0" y2="6.5"  stroke="#555" stroke-width="1"/>';
-?><svg class="icon" xmlns="http://www.w3.org/2000/svg" version="1.1" width="14" height="16">
-	<g transform="translate( 0.5,0.5)"><?php echo $one  ?></g>
-	<g transform="translate( 3.5,0.5)"><?php echo $zero ?></g>
-	<g transform="translate( 9.5,0.5)"><?php echo $one  ?></g>
-	<g transform="translate(12.5,0.5)"><?php echo $one  ?></g>
-	<g transform="translate( 0.5,9.5)"><?php echo $zero ?></g>
-	<g transform="translate( 6.5,9.5)"><?php echo $one  ?></g>
-	<g transform="translate( 9.5,9.5)"><?php echo $zero ?></g>
-</svg><?php 
-} //end svg_icon_bin() *********************************************************
-
-
-
-function svg_icon_img(){ //*****************************************************
-global $SVG_icon_img_0;
-?><svg class="icon icon_file" xmlns="http://www.w3.org/2000/svg" version="1.1" width="14" height="16">
-	<?php echo $SVG_icon_img_0 ?>
-</svg><?php 
-} //end svg_icon_img() *********************************************************
-
-
-
-function svg_icon_svg(){ //*****************************************************
-global $SVG_icon_img_0;
-?><svg class="icon icon_file" xmlns="http://www.w3.org/2000/svg" version="1.1" width="14" height="16">
-	<?php echo $SVG_icon_img_0 ?>
-	<line x1="3" y1="3.5"  x2="11" y2="3.5"  stroke="#444" stroke-width=".6"/>
-	<line x1="3" y1="6.5"  x2="11" y2="6.5"  stroke="#444" stroke-width=".6"/>
-	<line x1="3" y1="9.5"  x2="11" y2="9.5"  stroke="#444" stroke-width=".6"/>
-	<line x1="3" y1="12.5" x2="11" y2="12.5" stroke="#444" stroke-width=".6"/>
-</svg><?php 
-} //end svg_icon_img() *********************************************************
-
-
-
-function svg_icon_txt_0($border, $lines, $fill, $extra){ //*********************
-?><svg class="icon icon_file" xmlns="http://www.w3.org/2000/svg" version="1.1" width="14" height="16">
-	<rect x = "0" y = "0" width = "14" height = "16" 
-		fill="<?php echo $fill ?>" stroke="<?php echo $border ?>" stroke-width="2" />
-	<line x1="3" y1="3.5"  x2="11" y2="3.5"  stroke="<?php echo $lines ?>" stroke-width=".6"/>
-	<line x1="3" y1="6.5"  x2="11" y2="6.5"  stroke="<?php echo $lines ?>" stroke-width=".6"/>
-	<line x1="3" y1="9.5"  x2="11" y2="9.5"  stroke="<?php echo $lines ?>" stroke-width=".6"/>
-	<line x1="3" y1="12.5" x2="11" y2="12.5" stroke="<?php echo $lines ?>" stroke-width=".6"/>
-	<?php echo $extra ?>
-</svg><?php 
-} //end svg_icon_txt() *********************************************************
-
-
-
-function svg_icon_txt(){ svg_icon_txt_0('#333', '#000', '#FFF', ''); } //*******
-
-function svg_icon_htm(){ svg_icon_txt_0('#444', '#222', '#FABEAA', ''); } //**** rgb(250,190,170)
-
-function svg_icon_php(){ svg_icon_txt_0('#333', '#111', '#C3C3FF', ''); } //**** rgb(195,195,225)
-
-function svg_icon_css(){ svg_icon_txt_0('#333', '#111', '#FFE1A5', ''); } //**** rgb(255,225,165)
-
-function svg_icon_cfg(){ svg_icon_txt_0('#444', '#111', '#DDD', ''); } //*******
-
-
-
-function svg_icon_upload(){ //**************************************************
-	$extra = '<g transform="scale(1.1) translate(1.75,4)">
-		<polygon points="6,0  12,6  8,6  8,11  4,11  4,6  0,6" 
-		stroke-width="1" stroke="white" fill="green" /></g>';
-	svg_icon_txt_0('#333', 'black', 'white', $extra);
-} //end svg_icon_upload() ******************************************************
-
-
-
-function svg_icon_file_new(){ //************************************************
-	global $SVG_icon_circle_plus;
-	$extra = '<g transform="translate(4,6)">'.$SVG_icon_circle_plus.'</g>';
-	svg_icon_txt_0('#444', 'black', 'white', $extra);
-} //end svg_icon_file_new() ****************************************************
-
-
-
-function svg_icon_file_del(){ //************************************************
-global $SVG_icon_circle_x;
-	$extra = '<g transform="translate(4,6)">'.$SVG_icon_circle_x.'</g>';
-	svg_icon_txt_0('#444', 'black', 'white', $extra);
-} //end svg_icon_file_del() ****************************************************
-
-
-
-function svg_icon_folder_0($extra){ //******************************************
-?><svg class="icon icon_fldr" xmlns="http://www.w3.org/2000/svg" version="1.1" width="18" height="14">
-	<path  d="M0.5, 1  L8,1  L9,2  L9,3  L16.5,3  L17,3.5  L17,13.5  L.5,13.5  L.5,.5" 
-			fill="#FBE47b" stroke="#F0CD28" stroke-width="1" />
-	<path  d="M1.5, 8  L7, 8  L8.5,6.3  L16,6.3  L7.5, 6.3   L6.5,7.5  L1.5,7.5" 
-			fill="transparent" stroke="white" stroke-width="1" />
-	<path  d="M1.5,13  L1.5,2  L7.5,2  L8.5,3  L8.5,4  L15.5,4 L16,4.5  L16,13"  
-			fill="transparent" stroke="white" stroke-width="1" />
-	<?php echo $extra ?>
-</svg><?php 
-} //end svg_icon_folder_0() ****************************************************
-
-
-
-function svg_icon_folder(){ svg_icon_folder_0(''); } //*************************
-
-
-
-function svg_icon_folder_new(){ //**********************************************
-	global $SVG_icon_circle_plus;
-	$extra = '<g transform="translate(7.5,4)">'.$SVG_icon_circle_plus.'</g>';
-	svg_icon_folder_0($extra);
-} //end svg_icon_folder_new() **************************************************
-
-
-
-function svg_icon_folder_ren(){ //**********************************************
-	global $SVG_icon_pencil;
-	$extra = '<g transform="translate(6,3)">'.$SVG_icon_pencil.'</g>';
-	svg_icon_folder_0($extra);
-} //end svg_icon_folder_ren() **************************************************
-
-
-
-function svg_icon_folder_del(){ //**********************************************
-	global $SVG_icon_circle_x; 
-	$extra = '<g transform="translate(7.5,4)">'.$SVG_icon_circle_x.'</g>';
-	svg_icon_folder_0($extra);
-} //end svg_icon_folder_del() **************************************************
-
-
-
-
-function show_icon($type){ //***************************************************
-	if     ($type == 'bin') { svg_icon_bin(); }
-	elseif ($type == 'img') { svg_icon_img(); }
-	elseif ($type == 'svg') { svg_icon_svg(); }
-	elseif ($type == 'txt') { svg_icon_txt(); }
-	elseif ($type == 'htm') { svg_icon_htm(); }
-	elseif ($type == 'php') { svg_icon_php(); }
-	elseif ($type == 'css') { svg_icon_css(); }
-	elseif ($type == 'cfg') { svg_icon_cfg(); }
-	else                    { svg_icon_bin(); } //default
-}//end show_icon() *************************************************************
 
 
 
@@ -786,14 +621,14 @@ function List_Files() { // ...in a vertical table ******************************
 		
 		if (!is_dir($ipath.$file) && !$excluded) {
 
-			//Determine file type & set cooresponding icon type.
-			$ext = end( explode(".", strtolower($file)) );
-			$type = $fclasses[array_search($ext, $ftypes)];
+
+
+
 ?>
 			<tr>
 				<td>
 					<?php echo '<a href="'.$ONESCRIPT.$param1.'&amp;f='.rawurlencode($file).'&amp;p=edit" >'; ?>
-					<?php show_icon($type); echo  htmlentities($file), '</a>'; ?>
+					<?php echo  htmlentities($file), '</a>'; ?>
 				</td>
 				<td class="meta_T meta_size">&nbsp;
 					<?php echo number_format(filesize($ipath.$file)); ?> B
@@ -820,7 +655,7 @@ function Index_Page(){ //*******************************************************
 		natcasesort($folders);
 		foreach ($folders as $folder) {
 			echo '<a href="'.$ONESCRIPT.'?i='.URLencode_path($folder).'/">'.PHP_EOL;
-			svg_icon_folder();
+
 			echo htmlentities(basename($folder)).' /</a>';
 		}
 	echo '</p>';
@@ -1737,8 +1572,8 @@ table.index_T td {
 	background-color: #EEE;
 	}
 
-.front_links a .icon_fldr {margin : 1.5px 5px 0 0; }
-.front_links a .icon_file {margin : 1.0px 5px 0 0; }
+
+
 
 .front_links a:hover  { background-color: rgb(255,250,150); }
 .front_links a:focus  { background-color: rgb(255,250,150); }
@@ -1895,7 +1730,7 @@ hr { /*-- -- -- -- -- -- --*/
 
 .web_root { font:1em Courier; }
 
-.icon {float: left; margin: 0 .3em 0 0;}
+
 
 .mono {font-family: courier;}
 

@@ -1,9 +1,14 @@
+LICENSE
+
+SOME BASIC SECURITY & ERROR LOG SETTINGS
+
 CONFIGURATION SECTION
 
-SOME STANDARD GLOBAL VARIABLES
+OTHER GLOBAL VALUES
 
 MISC FUNCTIONS:
 	Session_Startup()
+	Verify_IDLE_POST_etc()
 	hashit()
 	undo_magic_quotes()
 	Get_GET()
@@ -17,6 +22,7 @@ MISC FUNCTIONS:
 	Cancel_Submit_Buttons()
 	show_image()
 	show_favicon()
+	Timeout_Timer()
 	Init_Macros()
 
 SVG ICON FUNCTIONS:
@@ -42,15 +48,17 @@ SVG ICON FUNCTIONS:
 PAGE & RESPONSE FUNCTIONS:
 	Hash_Page()
 	Hash_Page_response()
+	Logout()
 	Login_Page()
-	list_files()
+	Login_Page_response()
+	List_Files()
 	Index_Page()
 	Edit_Page_Buttons()
 	Edit_Page_form()
 	Edit_Page()
 	Edit_Page_response()
 	Upload_Page()
-	Upload_File_response()
+	Upload_response()
 	New_File_Page()
 	New_File_response() 
 	Copy_Ren_Move_Page()
@@ -65,9 +73,10 @@ PAGE & RESPONSE FUNCTIONS:
 	Load_Selected_Page()
 
 JAVASCRIPT & STYLESHEET FUNCTIONS:
-	Time_Stamp_scripts() //Javascript functions
-	Edit_Page_scripts()  //Javascript functions
-	style_sheet()        //css
+	Timer_scripts()
+	Time_Stamp_scripts()
+	Edit_Page_scripts()
+	style_sheet()
 	
 LOGIC TO DETERMINE PAGE ACTION
 	Verify good PHP version
@@ -78,4 +87,5 @@ LOGIC TO DETERMINE PAGE ACTION
 		Do $_POST['someaction'] (<someaction>_response)
 	Validate $page to show
 	
-GENERATE ACTUAL <HTML>...
+GENERATE/OUTPUT <HTML>...  
+  
